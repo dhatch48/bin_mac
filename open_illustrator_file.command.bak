@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -x
+targetFile="smb://vm2/H - Honor Life/_Orders/Headstones & Memorials.com/0129/0129859 Cross, Darlene 3165.ai"
+testdir="/Volumes/H - Honor Life"
+testdir_url="//VM2/H%20-%20Honor%20Life"
+
+
+CURRENTUSER=$(who | grep "console" | awk '{print $1}')
+PID=$(ps auxwww | egrep "$CURRENTUSER" |\
+fgrep /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow |\
+awk '{print $2}')
+
+# Check if "H" drive is mounted and mount if not
+if ! mount | grep "on $testdir" > /dev/null; then
+    #mkdir "$testdir"
+    #mount_smbfs "$testdir_url" "$testdir" && echo "volume mounted"
+    sudo launchctl bsexec "$PID" open "smb://vm2/H - Honor Life/"
+    sleep 1
+fi
+
+# Check if illustrator is already running
+number=$(ps -e | grep -w Illustrator | wc -l)
+if [[ $number -le 1 ]]; then
+    sudo launchctl bsexec "$PID" open -a "Adobe Illustrator" 
+    sleep 5
+fi
+
+# Open illustrator file
+sudo launchctl bsexec "$PID" open -a "Adobe Illustrator" "${targetFile/smb:\/\/vm2\///Volumes/}"
+#echo "${targetFile/smb:\/\/vm2\///Volumes/}"
