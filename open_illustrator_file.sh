@@ -15,6 +15,9 @@ scriptDir=$( cd $(dirname $0) ; pwd -P )
 plistLocation="$HOME/Library/LaunchAgents/com.memorialorders.open_illustrator.plist"
 PIPELOCATION="$scriptDir/illustratorFilePipe"
 
+# Find path to newest photoshop app. Used in openArtworkFile function
+photoshopVersion="$(find /Applications -name "Adobe Photoshop CC*.app" -maxdepth 3 -print0 | xargs -0 stat -f "%m%t%N" | sort -rn | head -1 | cut -f2-)"
+
 # Mount if needed the smb drive of passed file
 function mountSmbDrive {
     targetFile="$1"
@@ -33,14 +36,19 @@ function mountSmbDrive {
 }
 
 # Open passed file in Illustrator
-function openIllustratorFile {
+function openArtworkFile {
     targetFile="$1"
+    applicationToRun="Adobe Illustrator"
+    if echo "$targetFile" | grep -i "\.psd\s*"; then
+        applicationToRun="$photoshopVersion"
+    fi
     echo "PC NAME IS $pcName"
-    open -a "Adobe Illustrator" "${targetFile/smb:\/\/$pcName\///Volumes/}"
+    open -a "$applicationToRun" "${targetFile/smb:\/\/$pcName\///Volumes/}"
 }
 
 
 # Create LaunchAgent plist file and install in user Library
+
 # Once installed plist file will be loaded on next user login
 function installDaemon {
     echo "Installing Daemon"
@@ -94,7 +102,7 @@ function illustratorLoop {
     while read THEFILE; do
         echo READ THEFILE;
         mountSmbDrive "$THEFILE"
-        openIllustratorFile "$THEFILE"
+        openArtworkFile "$THEFILE"
     done < "$PIPELOCATION"
 }
 
