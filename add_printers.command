@@ -39,7 +39,7 @@ function addAccusetPrinters {
 }
 
 # SoftRIP printer queues
-function addEpsonPrinters {
+function addSoftripPrinters {
     lpadmin -p "Epson_SP_7890_Mono" -E \
         -v "lpd://rip2-pc/1" \
         -P "/Volumes/_Drivers/Printers/PPDs/Mac/epsn7890.ppd" \
@@ -80,7 +80,7 @@ function addCeramicPrinters {
 for param in $@; do
     case $param in
         [Cc]eramic*) addCeramicPrinters ;;
-        [Ee]pson*) addEpsonPrinters ;;
+        [Ee]pson*|[Ss]oft[Rr]*) addSoftripPrinters ;;
         [Aa]ccuset*) addAccusetPrinters ;;
         [Cc]opier*) addCopiers ;;
         *) echo "$param is not a defined printer group" ;;
