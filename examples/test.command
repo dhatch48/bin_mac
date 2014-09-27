@@ -17,7 +17,7 @@ else
     echo "nope"
 fi
 
-# Correct extended test - var expansion happens prior to test
+# Correct extended test - no filename expansion or word splitting takes place
 if [[ 'what the heck' = $var ]]; then
     echo "It's equal"
 else

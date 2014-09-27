@@ -4,10 +4,10 @@
 # This script adds network printers and mounts vm3 for required drivers.
 # Takes one or more param which specifies which group of printers to add.
 
-testdir="/Volumes/_Drivers"
-if [ ! -d "$testdir" ]; then
-    mkdir "$testdir"
-    mount_smbfs //vm3/"${testdir##*/}" "$testdir" && echo "volume mounted"
+mountLocation="/Volumes/_Drivers"
+if  ! mount | grep "on $mountLocation" > /dev/null; then
+    mkdir "$mountLocation"
+    mount_smbfs //vm3/"${mountLocation##*/}" "$mountLocation" && echo "volume mounted"
 fi
 
 # Xitron Accuset 800 queues
