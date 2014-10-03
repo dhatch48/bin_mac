@@ -25,3 +25,11 @@ bill $ 9
 EOF
 fi
 
+# Another way with variable
+varLookup='pete $500
+joe $400
+sam $ 55
+bill $ 19'
+if [[ -n $1 ]]; then
+    echo "$varLookup" | grep -i $1
+fi
