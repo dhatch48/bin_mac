@@ -32,7 +32,8 @@ fi
 
 # Find illustrator files that are saved in chosen version and output filenames
 if [[ -n $version ]]; then
-    LC_ALL=C fgrep -l "%%Creator: Adobe Illustrator(R) $version" *.ai
+    # output matches to screen and to word count to get total number of files
+    LC_ALL=C fgrep -l "%%Creator: Adobe Illustrator(R) $version" *.ai | tee /dev/tty | wc -l
 else
     echo "'$1' is not a supported version. Supported versions are:
     8, 9, 10, CS, CS2, CS3, CS4, CS5, CS6, CC"
