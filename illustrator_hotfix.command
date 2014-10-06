@@ -4,7 +4,7 @@ testdir="/Volumes/O - OS"
 testdir_uri="/Volumes/O%20-%20OS"
 if [ ! -d "$testdir" ]; then
     mkdir "$testdir"
-    mount_smbfs //david@vm2/"${testdir_uri##*/}" "$testdir" && echo "volume mounted"
+    mount_smbfs //vm2/"${testdir_uri##*/}" "$testdir" && echo "$testdir mounted"
 fi
 
 rm_folder="/Applications/Adobe/Adobe Illustrator CC/Adobe Illustrator.app/Contents/Frameworks/dvaui.framework"
