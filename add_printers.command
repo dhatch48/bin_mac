@@ -4,14 +4,42 @@
 # This script adds network printers and mounts vm3 for required drivers.
 # Takes one or more param which specifies which group of printers to add.
 
+function mountVm3Drivers {
 mountLocation="/Volumes/_Drivers"
 if  ! mount | grep "on $mountLocation" > /dev/null; then
     mkdir "$mountLocation"
     mount_smbfs //vm3/"${mountLocation##*/}" "$mountLocation" && echo "volume mounted"
 fi
+}
+
+# shipping
+function addShippingPrinter {
+    # remove printer named "Shipping"
+    lpadmin -x Shipping || echo 'There is no "Shipping" printer'
+
+    # Add shipping printer using windows share
+    ppdPath='/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4250.gz'
+    lpadmin -p "Shipping" -E \
+        -v "smb://vm3/Shipping" \
+        -P "$ppdPath" \
+        -o printer-is-shared=false -o printer-op-policy="authenticated" \
+        && echo 'Shipping printer added'
+}
+
+# IT
+function addITPrinter {
+    ppdPath='/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4240.gz'
+    lpadmin -p "IT" -E \
+        -v "smb://vm3/IT" \
+        -P "$ppdPath" \
+        -o printer-is-shared=false -o printer-op-policy="authenticated" \
+        && echo 'IT printer added'
+}
 
 # Xitron Accuset 800 queues
 function addAccusetPrinters {
+    mountVm3Drivers    
+
     lpadmin -p "Accuset-8.5x14" -E \
         -v "smb://rip-pc/Accuset-8.5x14" \
         -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
@@ -40,6 +68,8 @@ function addAccusetPrinters {
 
 # SoftRIP printer queues
 function addSoftripPrinters {
+    mountVm3Drivers
+
     lpadmin -p "Epson_SP_7890_Mono" -E \
         -v "lpd://rip2-pc/1" \
         -P "/Volumes/_Drivers/Printers/PPDs/Mac/epsn7890.ppd" \
@@ -56,6 +86,8 @@ function addSoftripPrinters {
 
 # Copiers
 function addCopiers {
+    mountVm3Drivers
+
     lpadmin -p "Copier_1st_Floor" -E \
         -v "smb://vm3.dottek.com/Copier_1st_Floor" \
         -P "/Volumes/_Drivers/Printers/Konica Minolta bizhub 352c/Postscript Fiery X3e TY30C-KM WHQL v1.01/EF5M4127.PPD" \
@@ -83,6 +115,8 @@ for param in $@; do
         [Ee]pson*|[Ss]oft[Rr]*) addSoftripPrinters ;;
         [Aa]ccuset*) addAccusetPrinters ;;
         [Cc]opier*) addCopiers ;;
+        [Ss]hipping*) addShippingPrinter ;;
+        [iI][tT]) addITPrinter ;;
         *) echo "$param is not a defined printer group" ;;
     esac
 done
