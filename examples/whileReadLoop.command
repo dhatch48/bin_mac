@@ -1,19 +1,23 @@
 #!/bin/bash
 
 text=' hello  world\
-foo\bar'
+foo\bar
+Some File Name.ai
+Some File 2014-10-14'
 
 # escapes baskslashes and therefore removes them
 printf '%s\n' "$text" | 
 while read line; do 
     printf '%s\n' "[$line]"
 done
+echo
 
 # This diables backslash escaping but it still removes the leading space
 printf '%s\n' "$text" |
 while read -r line; do 
     printf '%s\n' "[$line]"
 done
+echo
 
 # Good - nothing missing
 printf '%s\n' "$text" |
