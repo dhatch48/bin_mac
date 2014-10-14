@@ -4,6 +4,7 @@
 # mount that smb drive if doesn't exist
 #set -x
 
+# Spaces must be escaped with %20
 mount_smbDrive() {
     drive[0]="//vm2/F%20-%20Data"
     drive[1]="//vm2/G%20-%20Art%20Department"
@@ -15,6 +16,7 @@ mount_smbDrive() {
     drive[7]="//vm2/R%20-%20Resources"
     drive[8]="//vm2/S%20-%20Sales"
     drive[9]="//vm3/T%20-%20FTP"
+    drive[10]="//vm2/web"
 
     smbLocation=$(
         argToUpper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
@@ -29,6 +31,7 @@ mount_smbDrive() {
             ("R") echo "${drive[7]}" ;;
             ("S") echo "${drive[8]}" ;;
             ("T") echo "${drive[9]}" ;;
+            ("W") echo "${drive[10]}" ;;
             (*) echo "" ;;
         esac
     )
