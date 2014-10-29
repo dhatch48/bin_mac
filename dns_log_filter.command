@@ -1,14 +1,12 @@
 #!/bin/bash
 #set -x
 
+logFileOrig='/Volumes/c$/dns.log'
 mountDir="${logFileOrig%/*}"
 mountLocation='//dc4/c$'
-logFileOrig='/Volumes/c$/dns.log'
 logFileDestination="$HOME/Downloads/dns.log"
 dnsLookupFileOrig='/Volumes/c$/dnsEntries.txt'
 dnsLookupFile="$HOME/Downloads/dnsEntries.txt"
-filterList=$(cat /Volumes/c\$/dns_whitelist_filter_list.txt)
-#filterList='apple akamai google dottek adobe webroot paycomonline gmail'
 
 
 # Mount smb location if not already mounted
@@ -17,12 +15,14 @@ if ! mount | fgrep "dc4/c$ on $mountDir" > /dev/null; then
     mount_smbfs "$mountLocation" "$mountDir" && echo "$mountLocation mounted"
 fi
 
+
 # Make a local copy
 cp "$logFileOrig" "$logFileDestination"
 awk '$4 ~ /^[1-9]/ {print $4,$1}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile"
 
 
 # Prepare filterList for use as regex
+filterList=$(cat /Volumes/c\$/dns_whitelist_filter_list.txt)
 #for word in $filterList; do
 #    filterWords="$filterWords[^[:alnum:]]$word[^[:alnum:]]|"
 #done
