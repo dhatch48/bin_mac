@@ -4,15 +4,16 @@
 # This script adds network printers and mounts vm3 for required drivers.
 # Takes one or more param which specifies which group of printers to add.
 
+# *Configured ppd files are saved in /etc/cups/ppd/
+
 function mountVm3Drivers {
-mountLocation="/Volumes/_Drivers"
-if  ! mount | grep "on $mountLocation" > /dev/null; then
-    mkdir "$mountLocation"
-    mount_smbfs //vm3/"${mountLocation##*/}" "$mountLocation" && echo "volume mounted"
-fi
+    mountLocation="/Volumes/_Drivers"
+    if  ! mount | grep "on $mountLocation" > /dev/null; then
+        mkdir "$mountLocation"
+        mount_smbfs //vm3/"${mountLocation##*/}" "$mountLocation" && echo "volume mounted"
+    fi
 }
 
-# shipping
 function addShippingPrinter {
     # remove printer named "Shipping"
     lpadmin -x Shipping || echo 'There is no "Shipping" printer'
@@ -26,7 +27,6 @@ function addShippingPrinter {
         && echo 'Shipping printer added'
 }
 
-# IT
 function addITPrinter {
     ppdPath='/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4240.gz'
     lpadmin -p "IT" -E \
@@ -34,6 +34,15 @@ function addITPrinter {
         -P "$ppdPath" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
         && echo 'IT printer added'
+}
+
+function addAccountingPrinter {
+    ppdPath='/Library/Printers/PPDs/Contents/Resources/hp LaserJet 4200 Series.gz'
+    lpadmin -p "Accounting" -E \
+        -v "smb://vm3/Accounting" \
+        -P "$ppdPath" \
+        -o printer-is-shared=false -o printer-op-policy="authenticated" \
+        && echo 'Accounting printer added'
 }
 
 # Xitron Accuset 800 queues
@@ -82,6 +91,10 @@ function addSoftripPrinters {
         -v "lpd://rip2-pc/3" \
         -P "/Volumes/_Drivers/Printers/PPDs/Mac/HP800.ppd" \
         -o printer-is-shared=false
+    lpadmin -p "Epson_SC_T7270_Mono" -E \
+        -v "lpd://rip2-pc/4" \
+        -P "/Volumes/_Drivers/Printers/PPDs/Mac/es70670.ppd" \
+        -o printer-is-shared=false
 }
 
 # Copiers
@@ -116,7 +129,8 @@ for param in $@; do
         [Aa]ccuset*) addAccusetPrinters ;;
         [Cc]opier*) addCopiers ;;
         [Ss]hipping*) addShippingPrinter ;;
-        [iI][tT]) addITPrinter ;;
+        [Ii][Tt]*) addITPrinter ;;
+        [Aa]ccounting*) addAccountingPrinter ;;
         *) echo "$param is not a defined printer group" ;;
     esac
 done
