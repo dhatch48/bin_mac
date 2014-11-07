@@ -15,11 +15,8 @@ function mountVm3Drivers {
 }
 
 function addShippingPrinter {
-    # remove printer named "Shipping"
-    lpadmin -x Shipping || echo 'There is no "Shipping" printer'
-
-    # Add shipping printer using windows share
-    ppdPath='/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4250.gz'
+    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/Shipping.ppd'
+    mountVm3Drivers || exit 1
     lpadmin -p "Shipping" -E \
         -v "smb://vm3/Shipping" \
         -P "$ppdPath" \
@@ -28,7 +25,8 @@ function addShippingPrinter {
 }
 
 function addITPrinter {
-    ppdPath='/Library/Printers/PPDs/Contents/Resources/HP LaserJet 4240.gz'
+    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/IT.ppd'
+    mountVm3Drivers || exit 1
     lpadmin -p "IT" -E \
         -v "smb://vm3/IT" \
         -P "$ppdPath" \
@@ -37,7 +35,8 @@ function addITPrinter {
 }
 
 function addAccountingPrinter {
-    ppdPath='/Library/Printers/PPDs/Contents/Resources/hp LaserJet 4200 Series.gz'
+    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/Accounting.ppd'
+    mountVm3Drivers || exit 1
     lpadmin -p "Accounting" -E \
         -v "smb://vm3/Accounting" \
         -P "$ppdPath" \
@@ -47,7 +46,7 @@ function addAccountingPrinter {
 
 # Xitron Accuset 800 queues
 function addAccusetPrinters {
-    mountVm3Drivers    
+    mountVm3Drivers || exit 1
 
     lpadmin -p "Accuset-8.5x14" -E \
         -v "smb://rip-pc/Accuset-8.5x14" \
@@ -77,7 +76,7 @@ function addAccusetPrinters {
 
 # SoftRIP printer queues
 function addSoftripPrinters {
-    mountVm3Drivers
+    mountVm3Drivers || exit 1
 
     lpadmin -p "Epson_SP_7890_Mono" -E \
         -v "lpd://rip2-pc/1" \
@@ -99,7 +98,7 @@ function addSoftripPrinters {
 
 # Copiers
 function addCopiers {
-    mountVm3Drivers
+    mountVm3Drivers || exit 1
 
     lpadmin -p "Copier_1st_Floor" -E \
         -v "smb://vm3.dottek.com/Copier_1st_Floor" \
