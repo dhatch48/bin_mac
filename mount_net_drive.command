@@ -41,7 +41,7 @@ mount_smbDrive() {
         mountLocation="${mountLocation//%20/ }"
         if ! mount | grep "on $mountLocation" > /dev/null; then
             mkdir "$mountLocation"
-            mount_smbfs "$smbLocation" "$mountLocation" && echo "$smbLocation mounted"
+            mount -t smbfs "$smbLocation" "$mountLocation" && echo "$smbLocation mounted"
         else
             echo "$smbLocation is already mounted"
         fi
