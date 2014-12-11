@@ -6,6 +6,8 @@
 
 # *Configured ppd files are saved in /etc/cups/ppd/
 
+ppdLocation='/Volumes/_Drivers/Printers/PPDs/Mac'
+
 function mountVm3Drivers {
     mountLocation="/Volumes/_Drivers"
     if  ! mount | grep "on $mountLocation" > /dev/null; then
@@ -15,31 +17,28 @@ function mountVm3Drivers {
 }
 
 function addShippingPrinter {
-    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/Shipping.ppd'
     mountVm3Drivers || exit 1
     lpadmin -p "Shipping" -E \
         -v "smb://vm3/Shipping" \
-        -P "$ppdPath" \
+        -P "$ppdLocation/Shipping.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
         && echo 'Shipping printer added'
 }
 
 function addITPrinter {
-    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/IT.ppd'
     mountVm3Drivers || exit 1
     lpadmin -p "IT" -E \
         -v "smb://vm3/IT" \
-        -P "$ppdPath" \
+        -P "$ppdLocation/IT.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
         && echo 'IT printer added'
 }
 
 function addAccountingPrinter {
-    ppdPath='/Volumes/_Drivers/Printers/PPDs/Mac/Accounting.ppd'
     mountVm3Drivers || exit 1
     lpadmin -p "Accounting" -E \
         -v "smb://vm3/Accounting" \
-        -P "$ppdPath" \
+        -P "$ppdLocation/Accounting.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
         && echo 'Accounting printer added'
 }
@@ -78,21 +77,21 @@ function addAccusetPrinters {
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
 
-    lpadmin -p "Epson_SP_7890_Mono" -E \
+    lpadmin -p "Epson_SP_7890_Print_Mono" -E \
         -v "lpd://rip2-pc/1" \
-        -P "/Volumes/_Drivers/Printers/PPDs/Mac/epsn7890.ppd" \
+        -P "$ppdLocation/epsn7890.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SP_9880_Mono" -E \
+    lpadmin -p "Epson_SC_T7270_Layout_Mono" -E \
         -v "lpd://rip2-pc/2" \
-        -P "/Volumes/_Drivers/Printers/PPDs/Mac/epsn9880.ppd" \
+        -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "HP_DJ_800" -E \
+    lpadmin -p "Epson_SC_T7270_Print_Halftone" -E \
         -v "lpd://rip2-pc/3" \
-        -P "/Volumes/_Drivers/Printers/PPDs/Mac/HP800.ppd" \
+        -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SC_T7270_Mono" -E \
+    lpadmin -p "Epson_SC_T7270_Print_Mono" -E \
         -v "lpd://rip2-pc/4" \
-        -P "/Volumes/_Drivers/Printers/PPDs/Mac/es70670.ppd" \
+        -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
 }
 
@@ -102,7 +101,7 @@ function addCopiers {
 
     lpadmin -p "Copier_1st_Floor" -E \
         -v "smb://vm3.dottek.com/Copier_1st_Floor" \
-        -P "/Volumes/_Drivers/Printers/Konica Minolta bizhub 352c/Postscript Fiery X3e TY30C-KM WHQL v1.01/EF5M4127.PPD" \
+        -P "$ppdLocation/Copier_1st_Floor.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated"
     #lpadmin -p "Copier_2nd_Floor" -E \
     #    -v "dnssd://EFI%20Fiery%20E10%2050-45C-KM%20PS%20Color%20Server1.1%20(2)._pdl-datastream._tcp.local./?bidi" \
