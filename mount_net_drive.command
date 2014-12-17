@@ -46,7 +46,9 @@ mount_smbDrive() {
             echo "$smbLocation is already mounted"
         fi
     else 
-        echo "$1 is not a valid smb Location"
+        echo "$1 is not a valid option. Valid options are: F G H I J M O R S T W"
+        echo "smb locations are:"
+        printf "%s\n" "${drive[@]//\%20/ }"
     fi
 }
 mount_smbDrive "$1"
