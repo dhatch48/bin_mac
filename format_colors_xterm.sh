@@ -13,8 +13,8 @@ fi
 grep -o '#[0-9a-fA-F]\{6\}' $1 > "$tempLocation/hexColors.txt"
 
 formatMintty () {
-echo 'ForegroundColour=
-BackgroundColour=
+echo 'BackgroundColour=
+ForegroundColour=
 CursorColour=
 Black=
 Red=
@@ -40,8 +40,8 @@ awk '
 }
 
 formatXterm () {
-echo "echo -ne '\e]10;,#000000,\a'    # foreground
-echo -ne '\e]11;,#C0C0C0,\a'    # background
+echo "echo -ne '\e]11;,#C0C0C0,\a'    # background
+echo -ne '\e]10;,#000000,\a'    # foreground
 echo -ne '\e]12;,#00FF00,\a'    # cursor
 echo -ne '\e]4;0;,#000000,\a'   # black
 echo -ne '\e]4;1;,#BF0000,\a'   # red
