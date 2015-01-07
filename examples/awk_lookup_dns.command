@@ -6,7 +6,7 @@ BEGIN {  OFS = "\t"
     printf("Enter a hostname: ")
 }
 #1 read local file named dnsEntries.txt
-FILENAME == "/private/tmp/dnsEntries.txt" {
+FILENAME == "/tmp/dnsEntries.txt" {
     # load each ipAddress into an array indexed by hostname
     hosts[$1] = $2
     next
@@ -24,4 +24,4 @@ $0 != "" {
 #4 prompt user again for another term
 {
     printf("Enter another hostname (q to quit): ")
-}' /private/tmp/dnsEntries.txt -
+}' /tmp/dnsEntries.txt -
