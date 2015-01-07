@@ -18,11 +18,12 @@ fi
 
 # Make a local copy
 cp "$logFileOrig" "$logFileDestination"
-awk '$4 ~ /^[1-9]/ {print $4,$1}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile"
+awk '$2 ~ /^[1-9]/ {print $2,substr($1, 1, length($1)-11)}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile"
 
 
 # Prepare filterList for use as regex
-filterList=$(cat /Volumes/c\$/dns_whitelist_filter_list.txt)
+# tr is used to remove carriage returns in case its dos format
+filterList=$(cat /Volumes/c\$/dns_whitelist_filter_list.txt | tr -d '\r')
 #for word in $filterList; do
 #    filterWords="$filterWords[^[:alnum:]]$word[^[:alnum:]]|"
 #done
