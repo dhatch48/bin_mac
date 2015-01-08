@@ -49,4 +49,5 @@ awk '
     BEGIN {OFS="\t"}
     FNR==NR{arr[$1]=$2;next}
     /^[0-9]/ && $9 ~ /^1/ && $NF !~ /^.+'"$filterWords"'.+$/ {print $1,$2,$3,$9,arr[$9],$NF}
-' "$dnsLookupFile" "$logFileDestination" > "${logFileDestination/.log/_log_tsv.txt}"
+' "$dnsLookupFile" "$logFileDestination" > "${logFileDestination/.log/_log_tsv.txt}" \
+&& echo "Formatted file saved here: ${logFileDestination/.log/_log_tsv.txt}"
