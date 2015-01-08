@@ -1,29 +1,37 @@
 #!/bin/bash
 #set -x
 
-logFileOrig='/Volumes/c$/dns.log'
-mountDir="${logFileOrig%/*}"
-mountLocation='//dc4/c$'
-logFileDestination="$HOME/Downloads/dns.log"
-dnsLookupFileOrig='/Volumes/c$/dnsEntries.txt'
-dnsLookupFile="$HOME/Downloads/dnsEntries.txt"
+# Mac OSX file paths
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    logFileOrig='/Volumes/c$/dns.log'
+    mountDir="${logFileOrig%/*}"
+    mountLocation='//dc4/c$'
+    dnsLookupFileOrig='/Volumes/c$/dnsEntries.txt'
+    dnsWhiteList='/Volumes/c$/dns_whitelist_filter_list.txt'
 
-
-# Mount smb location if not already mounted
-if ! mount | fgrep "dc4/c$ on $mountDir" > /dev/null; then
-    mkdir "$mountDir"
-    mount_smbfs "$mountLocation" "$mountDir" && echo "$mountLocation mounted"
+# Cygwin file paths
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    logFileOrig='//dc4/c$/dns.log'
+    dnsLookupFileOrig='//dc4/c$/dnsEntries.txt'
+    dnsWhiteList='//dc4/c$/dns_whitelist_filter_list.txt'
 fi
 
+logFileDestination="/tmp/dns.log"
+dnsLookupFile="/tmp/dnsEntries.txt"
+
+# Mount smb location if not already mounted. Only for OSX
+if [[ "$OSTYPE" == "darwin"* ]] && ! mount | fgrep "dc4/c$ on $mountDir" > /dev/null; then
+    mkdir "$mountDir"
+    mount -t smbfs "$mountLocation" "$mountDir" && echo "$mountLocation mounted"
+fi
 
 # Make a local copy
 cp "$logFileOrig" "$logFileDestination"
 awk '$2 ~ /^[1-9]/ {print $2,substr($1, 1, length($1)-11)}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile"
 
-
 # Prepare filterList for use as regex
 # tr is used to remove carriage returns in case its dos format
-filterList=$(cat /Volumes/c\$/dns_whitelist_filter_list.txt | tr -d '\r')
+filterList=$(cat $dnsWhiteList | tr -d '\r')
 #for word in $filterList; do
 #    filterWords="$filterWords[^[:alnum:]]$word[^[:alnum:]]|"
 #done
