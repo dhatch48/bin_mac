@@ -1,9 +1,14 @@
 #!/bin/bash
-set -x
+#set -x
 
 parentDir="$HOME/Library/Keychains"
 match="????????-????-????-????-*"
 
 localItemsFolder="$(echo $parentDir/$match)"
 
-rm -rf "$localItemsFolder" && echo "local items folder removed. Please reboot immediately"
+read -n 1 -p "Are you sure you want to want to remove $localItemsFolder? (Y/N) " answer
+echo
+
+if [[ $answer == [yY] ]]; then
+    rm -rf "$localItemsFolder" && echo "folder removed. Please restart immediately"
+fi
