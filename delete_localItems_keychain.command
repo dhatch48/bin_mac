@@ -10,5 +10,6 @@ read -n 1 -p "Are you sure you want to want to remove $localItemsFolder? (Y/N) "
 echo
 
 if [[ $answer == [yY] ]]; then
-    rm -rf "$localItemsFolder" && echo "folder removed. Please restart immediately"
+    rm -rf "$localItemsFolder" && osascript -e 'tell application "Finder" to restart'
 fi
+
