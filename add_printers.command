@@ -85,7 +85,7 @@ function addSoftripPrinters {
         -v "lpd://rip2-pc/2" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SC_T7270_Print_Halftone" -E \
+    lpadmin -p "Epson_SC_T7270_Print_HiRes" -E \
         -v "lpd://rip2-pc/3" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
