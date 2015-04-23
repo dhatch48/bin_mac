@@ -46,8 +46,12 @@ mount_smbDrive() {
             echo "$smbLocation is already mounted"
         fi
     else 
-        echo "$1 is not a valid option. Valid options are: F G H I J M O R S T W"
-        echo "smb locations are:"
+        printf "%s" "$1 is not a valid option. Valid options are: "
+        for netDrive in "${drive[@]}"; do
+            printf "%s " "${netDrive:6:1}"
+        done
+        echo
+        echo "These map to the following locations:"
         printf "%s\n" "${drive[@]//\%20/ }"
     fi
 }
