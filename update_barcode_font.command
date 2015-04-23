@@ -11,7 +11,7 @@ newFontName="${newFontLocation##*/}"
 cd /Library/Fonts
 # Delete bad barcode font
 echo "Deleted files:"
-sudo find . -iname 'free*3*9*' -exec rm -fv {} \;
+sudo find . -iname 'free*3*9*' -exec rm -fv '{}' \;
 echo
 
 # Connect to font resource
