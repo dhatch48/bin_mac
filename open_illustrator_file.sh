@@ -5,7 +5,7 @@
 # '--install' parameter
 
 #Use for for debbuging, shows commands executed
-set -x
+#set -x
 
 #Kill background process, if any on exit
 trap 'kill $(jobs -p)' EXIT
@@ -48,7 +48,6 @@ function openArtworkFile {
 
 
 # Create LaunchAgent plist file and install in user Library
-
 # Once installed plist file will be loaded on next user login
 function installDaemon {
     echo "Installing Daemon"
@@ -73,8 +72,8 @@ EOL
     if [[ ! -d "${plistLocation%/*}" ]]; then
         mkdir "${plistLocation%/*}"
     fi
-    echo "$plistData">"$plistLocation"
-    echo "Daemon installed - manually load or logoff and logon"
+    echo "$plistData">"$plistLocation" && launchctl load "$plistLocation"
+    echo "Daemon install complete."
 }
 
 # Unloads active daemon and removes plist file
@@ -88,6 +87,7 @@ function uninstallDaemon {
     [[ -f "$plistLocation" ]] && rm "$plistLocation"
 
     [[ -p "$PIPELOCATION" ]] && rm "$PIPELOCATION"
+    echo "Daemon uninstall complete"
 }
 
 # Setup named pipe and netcat listener
