@@ -15,7 +15,7 @@ fi
 
 
 #Turn off the shell scripting features inside the here-document by escaping any or all of the characters in the ending marker:
-# solution use \EOF of 'EOF'
+# solution use \EOF or 'EOF'
 if [[ -n $2 ]]; then
 grep -i $2 <<\EOF
 pete $100
