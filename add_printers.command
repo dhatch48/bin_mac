@@ -131,9 +131,18 @@ accuset
 copier
 shipping
 it
-accounting"
+accounting
+"
 
-for param in $@; do
+if [[ -z $@ ]]; then
+    read -p "Specify at least one printer group and press [enter] Options are: $options" answer
+    echo 
+fi
+
+# Use answer of else original passed params
+vars="${answer:-$@}"
+
+for param in $vars; do
     case $param in
         [Cc]eramic*) addCeramicPrinters ;;
         [Ee]pson*|[Ss]oft[Rr]*) addSoftripPrinters ;;
