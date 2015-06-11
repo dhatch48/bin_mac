@@ -6,10 +6,15 @@ match="????????-????-????-????-*"
 
 localItemsFolder="$(echo $parentDir/$match)"
 
-read -n 1 -p "Are you sure you want to want to remove $localItemsFolder? (Y/N) " answer
+echo
+read -n 1 -p "Are you sure want to delete and restart? (y/n):" answer
 echo
 
 if [[ $answer == [yY] ]]; then
-    rm -rf "$localItemsFolder" && osascript -e 'tell application "Finder" to restart'
+    rm -rf "$localItemsFolder" && osascript -e 'tell application "Finder" to restart' &
+else 
+    echo "Operation cancelled"
 fi
 
+osascript -e 'tell application "Terminal" to quit' &
+exit 0
