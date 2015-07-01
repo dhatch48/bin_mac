@@ -15,7 +15,7 @@ sudo find . -iname 'free*3*9*' -exec rm -fv '{}' \;
 echo
 
 # Connect to font resource
-. mount_net_drive.command r
+. "${0%/*}/mount_net_drive.command" r
 
 # Install new barcode font
 cp -f "$newFontLocation" . 
