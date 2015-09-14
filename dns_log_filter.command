@@ -27,7 +27,8 @@ fi
 
 # Make a local copy
 cp "$logFileOrig" "$logFileDestination"
-awk '$2 ~ /^[1-9]/ {print $2,substr($1, 1, length($1)-11)}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile"
+awk '$2 ~ /^[1-9]/ {print $2,substr($1, 1, length($1)-11)}' "$dnsLookupFileOrig" | sort -u > "$dnsLookupFile" \
+&& echo "Created local copy here: $logFileDestination"
 
 # Prepare filterList for use as regex
 # tr is used to remove carriage returns in case its dos format
@@ -35,6 +36,7 @@ filterList=$(cat $dnsWhiteList | tr -d '\r')
 #for word in $filterList; do
 #    filterWords="$filterWords[^[:alnum:]]$word[^[:alnum:]]|"
 #done
+echo "Loading filter list from file: $dnsWhiteList"
 if [[ -n $filterList ]]; then
     for word in $filterList; do
         filterWords="$filterWords$word|"
@@ -45,9 +47,10 @@ else
 fi
 
 # Filter, add hostnames, and format as tab seperated
+echo "Filtering and formatting dns log... this could take several minutes."
 awk '
     BEGIN {OFS="\t"}
     FNR==NR{arr[$1]=$2;next}
     /^[0-9]/ && $9 ~ /^1/ && $NF !~ /^.+'"$filterWords"'.+$/ {print $1,$2,$3,$9,arr[$9],$NF}
 ' "$dnsLookupFile" "$logFileDestination" > "${logFileDestination/.log/_log_tsv.txt}" \
-&& echo "Formatted file saved here: ${logFileDestination/.log/_log_tsv.txt}"
+&& echo "Filtering Complete! File is saved here: ${logFileDestination/.log/_log_tsv.txt}"
