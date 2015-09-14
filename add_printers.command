@@ -101,17 +101,24 @@ function addSoftripPrinters {
 function addCopiers {
     mountVm3Drivers || exit 1
 
-    lpadmin -p "Copier_1st_Floor" -E \
+    lpadmin -p "Copier_1st_Floor_PS" -E \
         -v "smb://vm3.dottek.com/Copier_1st_Floor" \
-        -P "$ppdLocation/Copier_1st_Floor.ppd" \
+        -P "$ppdLocation/Copier_1st_Floor_PS.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
-    && echo 'Copier_1st_Floor added'
+    && echo 'Copier_1st_Floor_PS added'
 
     lpadmin -p "Copier_2nd_Floor_PS" -E \
         -v "smb://vm3.dottek.com/Copier_2nd_Floor" \
         -P "$ppdLocation/Copier_2nd_Floor_PS.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
-    && echo 'Copier_2nd_Floor_PS'
+    && echo 'Copier_2nd_Floor_PS added'
+
+    #lpadmin -p "Copier_1st_Floor" -E \
+    #    -v "smb://vm3.dottek.com/Copier_1st_Floor" \
+    #    -P "$ppdLocation/Copier_1st_Floor.ppd" \
+    #    -o printer-is-shared=false -o printer-op-policy="authenticated" \
+    #&& echo 'Copier_1st_Floor added'
+
     #lpadmin -p "Copier_2nd_Floor" -E \
     #    -v "dnssd://EFI%20Fiery%20E10%2050-45C-KM%20PS%20Color%20Server1.1%20(2)._pdl-datastream._tcp.local./?bidi" \
     #    -P "/Library/Printers/PPDs/Contents/Resources/en.lproj/Fiery E10 50-45C-KM PS1.1" \
