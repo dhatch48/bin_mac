@@ -2,7 +2,7 @@
 #set -x
 
 wordListFile="$HOME/bin/tech_wordlist.txt"
-scriptFile="$HOME/bin/selenium_test_38.html"
+scriptFile="$HOME/bin/selenium_test_latest.html"
 
 # Get index from 1st line of file and then increment
 read -r index < "$wordListFile"
