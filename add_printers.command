@@ -78,19 +78,19 @@ function addAccusetPrinters {
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
 
-    lpadmin -p "Epson_SP_7890_Print_Mono" -E \
+    lpadmin -p "Epson_3" -E \
         -v "lpd://rip2-pc/1" \
-        -P "$ppdLocation/epsn7890.ppd" \
+        -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SC_T7270_Layout_Mono" -E \
+    lpadmin -p "Epson_1_Layout_Mono" -E \
         -v "lpd://rip2-pc/2" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SC_T7270_Print_HiRes" -E \
+    lpadmin -p "Epson_2_Print_HiRes" -E \
         -v "lpd://rip2-pc/3" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_SC_T7270_Print_Mono" -E \
+    lpadmin -p "Epson_2_Print_Mono" -E \
         -v "lpd://rip2-pc/4" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false \
