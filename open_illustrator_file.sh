@@ -23,15 +23,17 @@ function mountSmbDrive {
     targetFile="$1"
     pcName=$(echo "$targetFile" | awk -F "/" '{print $3}')
     firstFolder=$(echo "$targetFile" | awk -F "/" '{print $4}')
-    testdir="/Volumes/$firstFolder"
-    testdir_url="//$pcName/${firstFolder// /%20}"
+    smbLocation="smb://$pcName/$firstFolder"
 
-    echo "mounting to $testdir_url $testdir"
-
-    if ! mount | grep "on $testdir" > /dev/null; then
-        mkdir "$testdir"
-        mount_smbfs "$testdir_url" "$testdir" && echo "volume mounted"
-        sleep 1
+    if ! mount | grep "on /Volumes/$firstFolder" > /dev/null; then
+        echo "Connecting to $smbLocation"
+        mountGood=$(osascript -e "try 
+            mount volume \"$smbLocation\"
+            set mountGood to true
+        on error
+            set mountGood to false
+        end try")
+        [[ $mountGood == true ]] && echo "Connected!"
     fi
 }
 
