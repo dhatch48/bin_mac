@@ -1,22 +1,20 @@
 #!/bin/bash
 # takes one arg specifying a drive letter
 # validate input to be one of the drives available in $drive array
-# mount that smb drive if doesn't exist
-#set -x
+set -x
 
-# Spaces must be escaped with %20
 mount_smbDrive() {
-    drive[0]="//vm2/F%20-%20Data"
-    drive[1]="//vm2/G%20-%20Art%20Department"
-    drive[2]="//vm2/H%20-%20Honor%20Life"
-    drive[3]="//vm2/I%20-%20Developement"
-    drive[4]="//vm2/J%20-%20Archives"
-    drive[5]="//vm2/M%20-%20MAS"
-    drive[6]="//vm2/O%20-%20OS"
-    drive[7]="//vm2/R%20-%20Resources"
-    drive[8]="//vm2/S%20-%20Sales"
-    drive[9]="//vm3/T%20-%20FTP"
-    drive[10]="//vm2/web"
+    drive[0]="smb://vm2/F - Data"
+    drive[1]="smb://vm2/G - Art Department"
+    drive[2]="smb://vm2/H - Honor Life"
+    drive[3]="smb://vm2/I - Developement"
+    drive[4]="smb://vm2/J - Archives"
+    drive[5]="smb://vm2/M - MAS"
+    drive[6]="smb://vm2/O - OS"
+    drive[7]="smb://vm2/R - Resources"
+    drive[8]="smb://vm2/S - Sales"
+    drive[9]="smb://vm3/T - FTP"
+    drive[10]="smb://vm2/web"
 
     smbLocation=$(
         argToUpper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
@@ -37,18 +35,17 @@ mount_smbDrive() {
     )
 
     if [[ -n $smbLocation ]]; then
-        mountLocation="${smbLocation///vm?/Volumes}"
-        mountLocation="${mountLocation//%20/ }"
-        if ! mount | grep "on $mountLocation" > /dev/null; then
-            mkdir "$mountLocation"
-            mount -t smbfs "$smbLocation" "$mountLocation" && echo "$smbLocation mounted"
-        else
-            echo "$smbLocation is already mounted"
-        fi
+        mountGood=$(osascript -e "try 
+            mount volume \"$smbLocation\"
+            set mountGood to true
+        on error
+            set mountGood to false
+        end try")
+        [[ $mountGood == true ]] && echo "$smbLocation mounted"
     else 
         printf "%s" "$1 is not a valid option. Valid options are: "
         for netDrive in "${drive[@]}"; do
-            printf "%s " "${netDrive:6:1}"
+            printf "%s " "${netDrive:10:1}"
         done
         echo
         echo "These map to the following locations:"
