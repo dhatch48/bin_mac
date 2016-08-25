@@ -1,7 +1,7 @@
 #!/bin/bash
 # takes one arg specifying a drive letter
 # validate input to be one of the drives available in $drive array
-set -x
+#set -x
 
 mount_smbDrive() {
     drive[0]="smb://vm2/F - Data"
