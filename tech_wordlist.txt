@@ -1,4 +1,4 @@
-3
+146
 3D Printer
 Log File
 Export
@@ -99,30 +99,30 @@ Favicon
 Output Device
 Extranet
 Download
-WordArt
+Zend Framework
 IPv4
-GPGPU
+Many Core Processor
 Kilobyte
 CRM
-Long
+Data Type Long
 Text Box
 Zone File
-MMS
+Wireless Data
 Video Card
 Dual-Core
-Dock
+Dell Docking Station
 Driver
 Bridge
 SDSL
-Cell
+Cell Phone
 Format
 DirectX
 HDMI
-TWAIN
+TWAIN driver
 Grep
-GPU
+GPU Benchmark
 Plug and Play
-Readme
+USB Flash Drive
 PCI-X
 Truncate
 Data Transfer Rate
@@ -130,8 +130,8 @@ Boot Sequence
 Flaming
 Flatbed
 Extensible
-OOP
-API
+Object Oriented Programming
+Application Programming Interface
 SNMP
 Start Menu
 Baseband
@@ -140,11 +140,10 @@ Home Page
 SSH
 GIS
 MP3
-Cybersquatter
 Link
-Big Data
+Big Data analytic tools
 Refresh
-SATA
+SATA 6G
 FPGA
 Cookie
 DMA
@@ -1071,7 +1070,7 @@ Table
 Network
 Baud
 Excel
-Intranet
+Epson printer
 Simplex
 Recursive Function
 PDA
