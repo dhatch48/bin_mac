@@ -1,4 +1,4 @@
-155
+157
 3D Printer
 Log File
 Export
@@ -152,9 +152,9 @@ Webmail
 Import
 Degauss
 Sidebar in wordpress
-Standby
-ASP
-Vector
+Standby Power
+Active Server Pages
+Vector Magic
 Handshake
 Tebibyte
 Grid Computing
