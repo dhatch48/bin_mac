@@ -78,20 +78,36 @@ function addAccusetPrinters {
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
 
-    lpadmin -p "Epson_3" -E \
+    lpadmin -p "Epson_3_HiRes" -E \
         -v "lpd://rip2-pc/1" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_3_StandardRes" -E \
+        -v "lpd://rip2-pc/1/standardRes" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_3_LowRes" -E \
+        -v "lpd://rip2-pc/1/lowRes" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_1_Layout_Mono" -E \
         -v "lpd://rip2-pc/2" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_2_Print_HiRes" -E \
+    lpadmin -p "Epson_1_StandardRes" -E \
+        -v "lpd://rip2-pc/2/standardRes" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_2_HiRes" -E \
         -v "lpd://rip2-pc/3" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_2_Print_Mono" -E \
-        -v "lpd://rip2-pc/4" \
+    lpadmin -p "Epson_2_StandardRes" -E \
+        -v "lpd://rip2-pc/3/standardRes" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_2_LowRes" -E \
+        -v "lpd://rip2-pc/3/lowRes" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false \
     && echo 'softRIP printers added'
