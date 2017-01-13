@@ -9,10 +9,16 @@
 ppdLocation='/Volumes/_Drivers/Printers/PPDs/Mac'
 
 function mountVm3Drivers {
-    mountLocation="/Volumes/_Drivers"
-    if  ! mount | grep "on $mountLocation" > /dev/null; then
-        mkdir "$mountLocation"
-        mount_smbfs //vm3/"${mountLocation##*/}" "$mountLocation" && echo "volume mounted"
+    smbLocation='smb://vm3/_Drivers'
+    mountLocation='/Volumes/_Drivers'
+    if  ! mount | grep -F "on $mountLocation" > /dev/null; then
+        mountGood=$(osascript -e "try 
+            mount volume \"$smbLocation\"
+            set mountGood to true
+        on error
+            set mountGood to false
+        end try")
+        [[ $mountGood == true ]] && echo "$smbLocation mounted"
     fi
 }
 
