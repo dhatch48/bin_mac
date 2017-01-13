@@ -78,38 +78,46 @@ function addAccusetPrinters {
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
 
-    lpadmin -p "Epson_3_HiRes" -E \
+    lpadmin -p "Epson_1_720px_Layout" -E \
         -v "lpd://rip2-pc/1" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_3_StandardRes" -E \
-        -v "lpd://rip2-pc/1/standardRes" \
+    lpadmin -p "Epson_1_720px_Standard" -E \
+        -v "lpd://rip2-pc/4" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_3_LowRes" -E \
-        -v "lpd://rip2-pc/1/lowRes" \
+    lpadmin -p "Epson_1_1440px" -E \
+        -v "lpd://rip2-pc/4/2880x1440" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_1_Layout_Mono" -E \
+    lpadmin -p "Epson_1_2880px" -E \
+        -v "lpd://rip2-pc/4/2880x2880" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_2_720px_Standard" -E \
         -v "lpd://rip2-pc/2" \
         -P "$ppdLocation/es70670.ppd" \
-        -o printer-is-shared=false
-    lpadmin -p "Epson_1_StandardRes" -E \
-        -v "lpd://rip2-pc/2/standardRes" \
+        -o printer-is-shared=false \
+    lpadmin -p "Epson_2_1440px" -E \
+        -v "lpd://rip2-pc/2/2880x1440" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_2_HiRes" -E \
+    lpadmin -p "Epson_2_2880px" -E \
+        -v "lpd://rip2-pc/2/2880x2880" \
+        -P "$ppdLocation/es70670.ppd" \
+        -o printer-is-shared=false
+    lpadmin -p "Epson_3_720px_Standard" -E \
         -v "lpd://rip2-pc/3" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_2_StandardRes" -E \
-        -v "lpd://rip2-pc/3/standardRes" \
+    lpadmin -p "Epson_3_1440px" -E \
+        -v "lpd://rip2-pc/3/2880x1440" \
         -P "$ppdLocation/es70670.ppd" \
         -o printer-is-shared=false
-    lpadmin -p "Epson_2_LowRes" -E \
-        -v "lpd://rip2-pc/3/lowRes" \
+    lpadmin -p "Epson_3_2880px" -E \
+        -v "lpd://rip2-pc/3/2880x2880" \
         -P "$ppdLocation/es70670.ppd" \
-        -o printer-is-shared=false \
+        -o printer-is-shared=false
     && echo 'softRIP printers added'
 }
 
