@@ -43,37 +43,6 @@ function addAccountingPrinter {
     && echo 'Accounting printer added'
 }
 
-# Xitron Accuset 800 queues
-function addAccusetPrinters {
-    mountVm3Drivers || exit 1
-
-    lpadmin -p "Accuset-8.5x14" -E \
-        -v "smb://rip-pc/Accuset-8.5x14" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated"
-    lpadmin -p "Accuset-14x14" -E \
-        -v "smb://rip-pc/Accuset-14x14" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated"
-    lpadmin -p "Accuset-14x20" -E \
-        -v "smb://rip-pc/Accuset-14x20" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated"
-    lpadmin -p "Accuset-14x30" -E \
-        -v "smb://rip-pc/Accuset-14x30" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated"
-    lpadmin -p "Accuset-14x40" -E \
-        -v "smb://rip-pc/Accuset-14x40" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated"
-    lpadmin -p "Accuset-14x50" -E \
-        -v "smb://rip-pc/Accuset-14x50" \
-        -P "/Volumes/_Drivers/Printers/Agfa Accuset 800/Macintosh Navigator PPD/XitronRIP.PPD" \
-        -o printer-is-shared=false -o printer-op-policy="authenticated" \
-    && echo 'Accuset printers added'
-}
-
 # SoftRIP printer queues
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
@@ -164,7 +133,6 @@ function addCeramicPrinters {
 options="
 ceramic
 softrip
-accuset
 copier
 shipping
 it
@@ -183,7 +151,6 @@ for param in $vars; do
     case $param in
         [Cc]eramic*) addCeramicPrinters ;;
         [Ee]pson*|[Ss]oft[Rr]*) addSoftripPrinters ;;
-        [Aa]ccuset*) addAccusetPrinters ;;
         [Cc]opier*) addCopiers ;;
         [Ss]hipping*) addShippingPrinter ;;
         it|IT*) addITPrinter ;;
