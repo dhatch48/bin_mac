@@ -1,4 +1,4 @@
-176
+188
 3D Printer
 Log File
 Export
@@ -151,7 +151,7 @@ Enterprise Hard Drive
 Webmail
 Import
 Degauss
-Sidebar in wordpress
+Sidebar in Wordpress
 Standby Power
 Active Server Pages
 Vector Magic
@@ -175,21 +175,17 @@ Cloud Integration
 Meta Search Engine
 CD Burning Software
 PPPoE
-Tiger
-Enum
-FSB
-ATM
+Jave Enum
+Asynchronous Transfer Mode
 Hyperlink
 Silent Install
 Primary Key
 Tab
-URL
-Data Type
-Heap
-Passive-Matrix
+URL link
+Database Data Types
+TFT Active Matrix Display
 OLE
-Zebibyte
-NUI
+User Interface Design
 Ergonomics
 Chromebook
 File Compression
