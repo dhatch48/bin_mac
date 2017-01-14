@@ -1,10 +1,11 @@
 #!/bin/bash
 #set -x
 
-# This script adds network printers and mounts vm3 for required drivers.
-# Takes one or more param which specifies which printer groups to add.
+### This script adds network printers and mounts vm3 for required drivers.
+### Takes one or more param which specifies which printer groups to add.
 
-# *Configured ppd files are saved in /etc/cups/ppd/
+### *Configured ppd files are saved in /etc/cups/ppd/
+### Installed printer drivers are usually here /Library/Printers/PPDs/Contents/Resources/
 
 ppdLocation='/Volumes/_Drivers/Printers/PPDs/Mac'
 
@@ -49,7 +50,7 @@ function addAccountingPrinter {
     && echo 'Accounting printer added'
 }
 
-# SoftRIP printer queues
+### SoftRIP printer queues
 function addSoftripPrinters {
     mountVm3Drivers || exit 1
 
@@ -96,7 +97,7 @@ function addSoftripPrinters {
     && echo 'softRIP printers added'
 }
 
-# Copiers
+### Copiers
 function addCopiers {
     mountVm3Drivers || exit 1
 
@@ -150,7 +151,7 @@ if [[ -z $@ ]]; then
     echo 
 fi
 
-# Use answer of else original passed params
+### Use answer of else original passed params
 vars="${answer:-$@}"
 
 for param in $vars; do
