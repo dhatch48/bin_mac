@@ -1,4 +1,4 @@
-188
+205
 3D Printer
 Log File
 Export
@@ -193,18 +193,16 @@ Command Prompt
 Batch Process
 Gigahertz
 FAT32
-SO-DIMM
-WAIS
+Wide Area Information Server
 IRC
-Executable File
-EIDE
+Windows Executable File
+EIDE Cable
 Refresh Rate
 Flash
-String
 CPM
 ATX
 Supercomputer
-Partition
+Hard Drive Partition
 Public Domain
 CPS
 Kibibyte
