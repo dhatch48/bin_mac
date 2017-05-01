@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # IFS affects the read statement and variable expansion
-# Default is space characters
-IFS=$'\n'
+# Change IFS to newline. Default is space characters
+IFS='
+'
 
 LIST="a A
 b B
