@@ -1,4 +1,4 @@
-205
+206
 3D Printer
 Log File
 Export
@@ -203,10 +203,7 @@ CPM
 ATX
 Supercomputer
 Hard Drive Partition
-Public Domain
-CPS
-Kibibyte
-MIDI
+Computer MIDI port
 JRE
 ISA
 Mobile
