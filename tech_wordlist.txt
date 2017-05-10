@@ -1,4 +1,4 @@
-206
+211
 3D Printer
 Log File
 Export
@@ -204,12 +204,11 @@ ATX
 Supercomputer
 Hard Drive Partition
 Computer MIDI port
-JRE
-ISA
-Mobile
+JVM
+Mobile Hotspots
 Matrix
-Chipset
-Antivirus
+Chipset Drivers
+Antivirus for Mac
 Web Forum
 POST
 CMOS
