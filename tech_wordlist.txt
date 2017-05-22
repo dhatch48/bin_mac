@@ -1,4 +1,4 @@
-211
+217
 3D Printer
 Log File
 Export
@@ -210,13 +210,11 @@ Matrix
 Chipset Drivers
 Antivirus for Mac
 Web Forum
-POST
-CMOS
+POST vs Get
+Replace dead CMOS battery
 Bitcoin
-Memory Module
 Smishing
-Tumblr
-DVD
+DVD+r vs DVD-r
 Malware
 ASCII
 Inbox
