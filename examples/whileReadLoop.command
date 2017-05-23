@@ -19,7 +19,7 @@ while read -r line; do
 done
 echo
 
-# Good - nothing missing
+echo "Good - while read"
 printf '%s\n' "$text" |
 while IFS= read -r line; do
     printf '%s\n' "[$line]"
@@ -32,12 +32,21 @@ echo
 
 
 ### Another way using for loop and modifying IFS
-IFSORIG=$IFS
+### If IFS is not set, the shell shall behave as if the value of IFS is default
+### (<space><tab><newline>)
+
+echo "Good - for loop"
 IFS='
 '
 for line in $text; do
     printf '%s\n' "[$line]"
 done
-IFS=$IFSORIG
+echo
+
 echo "IFS back to normal"
-cat -etv <<<"$IFS"
+unset IFS
+
+### This doesn't work right because IFS is unset and therefore default again.
+for line in $text; do
+    printf '%s\n' "[$line]"
+done
