@@ -1,4 +1,4 @@
-219
+224
 3D Printer
 Log File
 Export
@@ -218,18 +218,10 @@ DVD+r vs DVD-r
 Malware vs virus
 Email Inbox
 Control Panel
-Defragment
-Facebook
-Page Layout
-IPX
-Instagram
+Defragment Computer
 Inkjet
-Greenfield
-Application
-Toolbar
-Avatar
-FLOPS
-Gigabit
+Remove Toolbar
+Gigabit Internet
 Contextual Menu
 iSCSI
 Website
