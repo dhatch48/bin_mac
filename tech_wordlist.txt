@@ -1,4 +1,4 @@
-224
+227
 3D Printer
 Log File
 Export
@@ -222,11 +222,9 @@ Defragment Computer
 Inkjet
 Remove Toolbar
 Gigabit Internet
-Contextual Menu
-iSCSI
-Website
+Create a Website
 VRAM
-4K
+4K monitor
 Laser Printer
 CSS
 White Balance
