@@ -1,4 +1,4 @@
-227
+231
 3D Printer
 Log File
 Export
@@ -225,10 +225,10 @@ Gigabit Internet
 Create a Website
 VRAM
 4K monitor
-Laser Printer
-CSS
-White Balance
-CD-ROM
+Laser Printer vs Inkjet Printer
+CSS Selectors
+White Balance Definition
+CD r vs CD rw
 Buffer
 ISP
 Abend
