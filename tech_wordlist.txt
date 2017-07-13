@@ -1,4 +1,4 @@
-231
+233
 3D Printer
 Log File
 Export
@@ -229,12 +229,8 @@ Laser Printer vs Inkjet Printer
 CSS Selectors
 White Balance Definition
 CD r vs CD rw
-Buffer
-ISP
-Abend
-VGA
-CPC
-Micron
+Linux Buffer Cache
+Micron size
 Nanometer
 Domain
 Superscript
