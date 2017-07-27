@@ -1,4 +1,4 @@
-239
+241
 3D Printer
 Log File
 Export
@@ -237,8 +237,7 @@ Superscript
 Bit
 Password
 User-Friendly Design
-Python
-EDI
+Python Framework
 Skyscraper
 Mail Server
 Transistor
