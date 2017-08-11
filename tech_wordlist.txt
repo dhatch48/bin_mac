@@ -1,4 +1,4 @@
-241
+246
 3D Printer
 Log File
 Export
@@ -242,12 +242,8 @@ Skyscraper
 Mail Server
 Transistor
 Dual Boot
-Megabit
-Fluid Layout
-DV
-CCD
 CTR
-MIS
+Management Information System
 RPM
 Thick Client
 Lead
