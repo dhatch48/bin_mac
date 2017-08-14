@@ -18,15 +18,19 @@ Europe"
 # Inspect variable content
 declare -p myArray
 declare -p myList
+echo "${myArray[@]}"
 echo
 
 # Access individual items
 echo "myArray[0]: ${myArray[0]}"
-# Get last item. Arrays are sparce so length won't always be accurate
+# Get last item
 if [[ ${BASH_VERSINFO[0]} -ge 4 && ${BASH_VERSINFO[1]} -ge 2 ]]; then
     echo "${myList[-1]}"         # bash version => 4.2
 fi
 echo "${myList[@]: -1:1}"    # bash version > 2.05b
+
+# Arrays are sparce so length won't be accurate for determining the last index
+echo "myArray length: ${#myArray[@]}"
 echo
 
 # Add items to array
@@ -37,12 +41,12 @@ echo
 
 # Delete items
 unset myArray[0] && echo "Deleted myArray[0]"
-
 echo "There is now no 0 index: "
+
 declare -p myArray
 echo
 
-# Loop through entire array
+# Iterate through entire array
 echo myArray:
 for arg in "${myArray[@]}"; do
     echo "$arg"
