@@ -24,7 +24,7 @@ if [ "$FAIL" == "0" ];
 then
     echo "File copy complete for all drives!"
 else
-    echo "Fils copy failed for $FAIL drive(s)"
+    echo "File copy failed for $FAIL drive(s)"
 fi
 
 for drive in $drives; do
