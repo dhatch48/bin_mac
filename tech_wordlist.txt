@@ -1,4 +1,4 @@
-246
+249
 3D Printer
 Log File
 Export
@@ -245,8 +245,7 @@ Dual Boot
 CTR
 Management Information System
 RPM
-Thick Client
-Lead
+Thick Client Thin Client
 Screenshot
 SLI
 Clock Speed
