@@ -5,10 +5,7 @@
 # '--install' parameter
 
 #Use for for debbuging, shows commands executed
-#set -x
-
-#Kill background process, if any on exit
-trap 'kill $(jobs -p)' EXIT
+set -x
 
 # Vars used in install and uninstall functions
 scriptDir=$( cd $(dirname $0) ; pwd -P )
@@ -110,6 +107,10 @@ function illustratorLoop {
 
 # Check for args passed to modify script behavior
 if [[ $# -eq 0 ]]; then 
+    # Kill background process, if any on exit
+    trap 'kill $(jobs -p)' EXIT
+
+    # Run listener
     illustratorLoop
 elif [[ $1 = --install ]]; then 
     installDaemon
