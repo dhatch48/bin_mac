@@ -5,7 +5,7 @@
 # '--install' parameter
 
 #Use for for debbuging, shows commands executed
-set -x
+#set -x
 
 # Vars used in install and uninstall functions
 scriptDir=$( cd $(dirname $0) ; pwd -P )
