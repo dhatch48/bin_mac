@@ -14,7 +14,11 @@ starttmux() {
 
     local hosts=( $HOSTS )
 
-    tmux attach-session || tmux new-session -d
+    # Get in tmux if not already started
+    if [ -z "${TMUX}" ]; then
+        tmux attach-session || tmux new-session -d 
+    fi
+
     tmux new-window "ssh ${hosts[0]}"
     unset hosts[0];
     for i in "${hosts[@]}"; do
@@ -23,7 +27,8 @@ starttmux() {
     done
     tmux select-pane -t 0
     tmux set-window-option synchronize-panes on > /dev/null
-    tmux attach
+
+    [ -z "${TMUX}" ] && tmux attach
 }
 
 HOSTS=${HOSTS:=$*}
