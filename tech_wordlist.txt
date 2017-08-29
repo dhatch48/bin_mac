@@ -1,4 +1,4 @@
-249
+255
 3D Printer
 Log File
 Export
@@ -247,12 +247,10 @@ Management Information System
 RPM
 Thick Client Thin Client
 Screenshot
-SLI
-Clock Speed
-I/O Address
-TTL
-SMTP
-Slashdot
+SLI Graphics
+Clock Speed CPU
+Input Output Address
+Email Server Settings
 Resolution
 Graymail
 Registry
