@@ -2,8 +2,6 @@
 
 # IFS affects the read statement and variable expansion
 # Change IFS to newline. Default is space characters
-IFS='
-'
 
 LIST="a A
 b B
@@ -13,6 +11,11 @@ e E"
 
 n=1
 
+IFS='
+'
 for i in $LIST ; do
     echo "$((n++)). $i"
 done
+
+# Reset IFS back to default for the rest of script
+unset IFS
