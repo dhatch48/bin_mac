@@ -10,7 +10,7 @@
 ppdLocation='/Volumes/_Drivers/Printers/PPDs/Mac'
 
 function mountVm3Drivers {
-    smbLocation='smb://vm3/_Drivers'
+    smbLocation='smb://vm3.dottek.com/_Drivers'
     mountLocation='/Volumes/_Drivers'
     if  ! mount | grep -F "on $mountLocation" > /dev/null; then
         mountGood=$(osascript -e "try 
@@ -26,7 +26,7 @@ function mountVm3Drivers {
 function addShippingPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "Shipping" -E \
-        -v "smb://vm3/Shipping" \
+        -v "smb://vm3.dottek.com/Shipping" \
         -P "$ppdLocation/Shipping.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'Shipping printer added'
@@ -35,7 +35,7 @@ function addShippingPrinter {
 function addITPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "IT" -E \
-        -v "smb://vm3/IT" \
+        -v "smb://vm3.dottek.com/IT" \
         -P "$ppdLocation/IT.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'IT printer added'
@@ -44,7 +44,7 @@ function addITPrinter {
 function addAccountingPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "Accounting" -E \
-        -v "smb://vm3/Accounting" \
+        -v "smb://vm3.dottek.com/Accounting" \
         -P "$ppdLocation/Accounting.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'Accounting printer added'
