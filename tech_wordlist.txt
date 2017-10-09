@@ -1,4 +1,4 @@
-271
+278
 3D Printer
 Log File
 Export
@@ -269,16 +269,13 @@ USB transfer speed
 Page Fault
 CPU Frequency monitor
 Popular Scripting Languages
-Log On
-Beta Software
 E-learning
-DVD-RAM
 Dialog Box
 Insertion Point
-SD
-bps
+SD Card
+kbps vs KBps
 IP Address
-Virus
+Best Virus Scanner
 Array
 Hyper-Threading
 KOffice
