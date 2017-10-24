@@ -281,9 +281,7 @@ Mouse Pad
 Quad-Core
 Random Passphrase
 Create Documents
-Exabyte
-UNC
-Thunderbolt
+Thunderbolt 3
 DDL
 Native File
 Prebinding
