@@ -1,4 +1,4 @@
-294
+297
 3D Printer
 Log File
 Export
@@ -293,8 +293,8 @@ Loops Programming
 Keywords
 DOS Commands
 OpenCL
-Plug-in
-URI
+How to find Plugins on my computer
+What does URI mean
 HTML5
 CAD
 DSL
