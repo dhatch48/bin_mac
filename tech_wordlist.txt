@@ -1,4 +1,4 @@
-297
+300
 3D Printer
 Log File
 Export
@@ -295,14 +295,8 @@ DOS Commands
 OpenCL
 How to find Plugins on my computer
 What does URI mean
-HTML5
-CAD
-DSL
-PCI
-Superscalar
-HFS
-Grayscale
-AIFF
+Free CAD Systems
+Format disk mac
 Platform
 Snow Leopard
 Golden Master
