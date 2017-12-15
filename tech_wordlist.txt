@@ -1,4 +1,4 @@
-305
+307
 3D Printer
 Log File
 Export
@@ -303,8 +303,8 @@ Best SSD Drives
 Web Site vs Web Application
 Passcode
 Banner Ad Creator
-Power Supply
-Spam
+Power Supply Calculator
+Check my junk mail
 Teleconference
 Card Reader
 Gibibyte
