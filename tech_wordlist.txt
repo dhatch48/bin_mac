@@ -1,4 +1,4 @@
-307
+309
 3D Printer
 Log File
 Export
@@ -305,8 +305,8 @@ Passcode
 Banner Ad Creator
 Power Supply Calculator
 Check my junk mail
-Teleconference
-Card Reader
+Phone conferencing service
+Windows Memory Card Driver
 Gibibyte
 Tablet
 APU
