@@ -1,4 +1,4 @@
-323
+324
 3D Printer
 Log File
 Export
@@ -321,7 +321,7 @@ SMART disk check
 Enable DHCP windows 10
 NAT Firewall
 Restore My Computer
-4G
+4G Specs
 Google
 Undo
 Service Pack
