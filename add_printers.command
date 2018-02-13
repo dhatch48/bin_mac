@@ -151,7 +151,7 @@ if [[ -z $@ ]]; then
     echo 
 fi
 
-### Use answer of else original passed params
+### Use answer or else original passed params
 vars="${answer:-$@}"
 
 for param in $vars; do
