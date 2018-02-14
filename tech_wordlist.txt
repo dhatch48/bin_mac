@@ -1,4 +1,4 @@
-324
+331
 3D Printer
 Log File
 Export
@@ -322,19 +322,13 @@ Enable DHCP windows 10
 NAT Firewall
 Restore My Computer
 4G Specs
-Google
-Undo
+printscreen not working
 Service Pack
-Northbridge
-Backside Bus
-Switch
-Winsock
+Netgear Switch
+Winsock reset Windows 7
 Swipe
 Mainframe
-Multitasking
-BitTorrent
-NSP
-Hover
+Hover camera
 802.11ac
 Frame
 Computer Ethics
