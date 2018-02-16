@@ -27,7 +27,7 @@ function addShippingPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "Shipping" -E \
         -v "smb://vm3.dottek.com/Shipping" \
-        -P "$ppdLocation/Shipping.ppd" \
+        -P "$ppdLocation/HP4200.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'Shipping printer added'
 }
@@ -36,7 +36,7 @@ function addITPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "IT" -E \
         -v "smb://vm3.dottek.com/IT" \
-        -P "$ppdLocation/IT.ppd" \
+        -P "$ppdLocation/HP4250.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'IT printer added'
 }
@@ -45,9 +45,18 @@ function addAccountingPrinter {
     mountVm3Drivers || exit 1
     lpadmin -p "Accounting" -E \
         -v "smb://vm3.dottek.com/Accounting" \
-        -P "$ppdLocation/Accounting.ppd" \
+        -P "$ppdLocation/HP_LaserJet_MFP_M527.ppd" \
         -o printer-is-shared=false -o printer-op-policy="authenticated" \
     && echo 'Accounting printer added'
+}
+
+function addStonesPrinter {
+    mountVm3Drivers || exit 1
+    lpadmin -p "Stones" -E \
+        -v "smb://vm3.dottek.com/Stones" \
+        -P "$ppdLocation/HP4250.ppd" \
+        -o printer-is-shared=false -o printer-op-policy="authenticated" \
+    && echo 'Stones printer added'
 }
 
 ### SoftRIP printer queues
@@ -144,8 +153,8 @@ copier
 shipping
 it
 accounting
+stones
 "
-
 if [[ -z $@ ]]; then
     read -p "Specify at least one printer group and press [enter] Options are: $options" answer
     echo 
@@ -155,13 +164,14 @@ fi
 vars="${answer:-$@}"
 
 for param in $vars; do
-    case $param in
+    case "$param" in
         [Cc]eramic*) addCeramicPrinters ;;
         [Ee]pson*|[Ss]oft[Rr]*) addSoftripPrinters ;;
         [Cc]opier*) addCopiers ;;
         [Ss]hipping*) addShippingPrinter ;;
         it|IT*) addITPrinter ;;
         [Aa]ccounting*) addAccountingPrinter ;;
+        [Ss]tone*) addStonesPrinter ;;
         *) echo "$param is not a defined printer group. Options are:$options" ;;
     esac
 done
