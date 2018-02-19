@@ -65,43 +65,43 @@ function addSoftripPrinters {
 
     lpadmin -p "Epson_1_720px_Layout" -E \
         -v "lpd://rip2-pc/1" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_1_720px_Standard" -E \
         -v "lpd://rip2-pc/4" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_1_1440px" -E \
         -v "lpd://rip2-pc/4/2880x1440" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_1_2880px" -E \
         -v "lpd://rip2-pc/4/2880x2880" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_2_720px_Standard" -E \
         -v "lpd://rip2-pc/2" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_2_1440px" -E \
         -v "lpd://rip2-pc/2/2880x1440" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_2_2880px" -E \
         -v "lpd://rip2-pc/2/2880x2880" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_3_720px_Standard" -E \
         -v "lpd://rip2-pc/3" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_3_1440px" -E \
         -v "lpd://rip2-pc/3/2880x1440" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false
     lpadmin -p "Epson_3_2880px" -E \
         -v "lpd://rip2-pc/3/2880x2880" \
-        -P "$ppdLocation/es70670.ppd" \
+        -P "$ppdLocation/est7000.ppd" \
         -o printer-is-shared=false \
     && echo 'softRIP printers added'
 }
