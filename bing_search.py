@@ -43,7 +43,7 @@ def fp_proxy(PROXY_HOsearchTerm,PROXY_PORT,USER_AGENT):
     return fp
 
 def random_index(arr):
-    if len(arr):
+    if len(arr) > 1:
         return random.randrange(0,(len(arr)-1))
     else:
         return 0
@@ -104,6 +104,7 @@ while t > 0:
     relatedLinks1 = driver.find_elements(By.CSS_SELECTOR, relatedRightSelector)
     relatedLinks2 = driver.find_elements(By.CSS_SELECTOR, relatedAllSelector)
     relatedSearchTerm = ''
+    fail = 0
     if relatedLinks1:
         # for elem in relatedLinks1:
             # print(elem.text)
@@ -125,12 +126,19 @@ while t > 0:
         # ActionChains(driver).move_to_element(element).click().perform()
         element.click()
 
-    else:
-        print("Need a new search term")
+    elif fail:
+        print("Try new search term")
         print(t, "iterations left")
         break
 
-    WebDriverWait(driver, 10).until(EC.title_contains(relatedSearchTerm))
+    else:
+        driver.back()
+        time.sleep(random.gauss(2, 0.4))
+        driver.back()
+        fail = 1
+
+
+    # WebDriverWait(driver, 10).until(EC.title_contains(relatedSearchTerm))
     t -= 1
 
 
