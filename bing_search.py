@@ -7,6 +7,7 @@ import time
 import argparse
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
@@ -70,9 +71,6 @@ driver.set_window_position(1920/3,3)
 # print(driver.get_window_size())
 # print(driver.get_window_rect())
 
-driver.get("https://www.bing.com")
-time.sleep(random.randrange(1,2))
-
 # Get searchTerm from wordlist
 wordlist = 'tech_wordlist.txt'
 with open(wordlist) as fp:
@@ -83,11 +81,16 @@ with open(wordlist) as fp:
             searchTerm = line.strip()
             break
 
-searchbox = driver.find_element_by_name("q")
+
 relatedRightSelector = '.b_ans .b_rrsr a[href]'
 relatedBottomSelector = '.b_ans .b_rich a[href]'
 relatedAllSelector = '.b_ans a[href^="/search?"]'
 
+driver.get("https://www.bing.com")
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME,"q")))
+time.sleep(random.gauss(2, 0.4))
+
+searchbox = driver.find_element(By.NAME, "q")
 slowtype(searchbox, searchTerm)
 
 searchbox.submit()
@@ -97,9 +100,9 @@ print(driver.title)
 
 while t > 0:
 
-    time.sleep(random.gauss(5, 0.1))
-    relatedLinks1 = driver.find_elements_by_css_selector(relatedRightSelector)
-    relatedLinks2 = driver.find_elements_by_css_selector(relatedAllSelector)
+    time.sleep(random.gauss(5, 1))
+    relatedLinks1 = driver.find_elements(By.CSS_SELECTOR, relatedRightSelector)
+    relatedLinks2 = driver.find_elements(By.CSS_SELECTOR, relatedAllSelector)
     relatedSearchTerm = ''
     if relatedLinks1:
         # for elem in relatedLinks1:
@@ -109,8 +112,8 @@ while t > 0:
         element = relatedLinks1[i]
         relatedSearchTerm = element.text
         print(i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
-        ActionChains(driver).move_to_element(element).pause(random.randrange(3)).click(element).perform()
-        # element.click()
+        # ActionChains(driver).move_to_element(element).click().perform()
+        element.click()
 
     elif relatedLinks2:
         i = random_index(relatedLinks2)
@@ -119,15 +122,15 @@ while t > 0:
         print(i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
         driver.execute_script('arguments[0].scrollIntoView({bahavior: "smooth", block: "start", inline: "nearest"});', element)
         time.sleep(random.gauss(2, 0.4))
-        ActionChains(driver).move_to_element(element).pause(random.randrange(3)).click(element).perform()
-        # element.click()
+        # ActionChains(driver).move_to_element(element).click().perform()
+        element.click()
 
     else:
         print("Need a new search term")
         print(t, "iterations left")
         break
 
-    WebDriverWait(driver, 5).until(EC.title_contains(relatedSearchTerm))
+    WebDriverWait(driver, 10).until(EC.title_contains(relatedSearchTerm))
     t -= 1
 
 
