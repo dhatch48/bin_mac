@@ -17,6 +17,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 # Check for argument and set iteration amount
 parser = argparse.ArgumentParser()
 parser.add_argument('t', metavar='N', type=int, nargs='?', default=30, help='An int for the number of searches to try')
+parser.add_argument('-s', '--search', help='A string to use for the current search term')
 args = parser.parse_args()
 t = args.t
 
@@ -48,6 +49,26 @@ def random_index(arr):
     else:
         return 0
 
+# Get searchTerm from wordlist
+if args.search:
+    searchTerm = args.search
+else:
+    wordlist = 'tech_wordlist.txt'
+    with open(wordlist) as fp:
+        for i, line in enumerate(fp):
+            if i == 0:
+                wordIndex = int(line.strip())
+            elif i == wordIndex-1:
+                searchTerm = line.strip()
+                break
+
+print(t, searchTerm)
+exit()
+
+relatedRightSelector = '.b_ans .b_rrsr a[href]'
+relatedBottomSelector = '.b_ans .b_rich a[href]'
+relatedAllSelector = '.b_ans a[href^="/search?"]'
+
 ### Browser Setup
 myHosearchTerm = "185.218.151.148"  # 198.55.110.178, 198.55.110.133
 myProxyPort = 8800
@@ -70,21 +91,6 @@ driver.set_window_position(1920/3,3)
 # print(driver.get_window_position())
 # print(driver.get_window_size())
 # print(driver.get_window_rect())
-
-# Get searchTerm from wordlist
-wordlist = 'tech_wordlist.txt'
-with open(wordlist) as fp:
-    for i, line in enumerate(fp):
-        if i == 0:
-            wordIndex = int(line.strip())
-        elif i == wordIndex-1:
-            searchTerm = line.strip()
-            break
-
-
-relatedRightSelector = '.b_ans .b_rrsr a[href]'
-relatedBottomSelector = '.b_ans .b_rich a[href]'
-relatedAllSelector = '.b_ans a[href^="/search?"]'
 
 driver.get("https://www.bing.com")
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME,"q")))
