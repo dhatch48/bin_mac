@@ -62,9 +62,6 @@ else:
                 searchTerm = line.strip()
                 break
 
-print(t, searchTerm)
-exit()
-
 relatedRightSelector = '.b_ans .b_rrsr a[href]'
 relatedBottomSelector = '.b_ans .b_rich a[href]'
 relatedAllSelector = '.b_ans a[href^="/search?"]'
