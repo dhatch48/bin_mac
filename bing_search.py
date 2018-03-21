@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 # Check for argument and set iteration amount
 parser = argparse.ArgumentParser()
-parser.add_argument('t', metavar='N', type=int, nargs='?', default=30, help='An int for the number of searches to try')
+parser.add_argument('t', metavar='N', type=int, nargs='?', default=35, help='An int for the number of searches to try')
 parser.add_argument('-s', '--search', help='A string to use for the current search term')
 args = parser.parse_args()
 t = args.t
@@ -106,12 +106,13 @@ while t > 0:
     time.sleep(random.gauss(5, 1))
     relatedLinks1 = driver.find_elements(By.CSS_SELECTOR, relatedRightSelector)
     relatedLinks2 = driver.find_elements(By.CSS_SELECTOR, relatedAllSelector)
+    # Filter out links that aren't clickable
+    relatedLinks1 = list(filter(lambda x: x.is_displayed() == True, relatedLinks1))
+    relatedLinks2 = list(filter(lambda x: x.is_displayed() == True, relatedLinks2))
     relatedSearchTerm = ''
     fail = 0
+
     if relatedLinks1:
-        # for elem in relatedLinks1:
-            # print(elem.text)
-            # print(elem.get_attribute("href"))
         i = random_index(relatedLinks1)
         element = relatedLinks1[i]
         relatedSearchTerm = element.text
