@@ -1,4 +1,4 @@
-336
+343
 3D Printer
 Log File
 Export
@@ -334,18 +334,15 @@ Quicktime Screen Record
 Frame
 Computer Ethics
 LPI Printing
-Syntax
+Syntax Highlighting
 VLE
-Whitelist
-SPX
-ICS
+Whitelist IP Address
 File Association
 Mbps
 SKU
 PRAM
 Interlaced
-Skin
-Boot
+Computer Boot
 Toslink
 Virtual Memory
 Brownfield
