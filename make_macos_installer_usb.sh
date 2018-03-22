@@ -30,7 +30,8 @@ echo
 
 if [[ $answer == [yY] ]]; then
     if [[ -d $destination ]]; then
-        sudo "$sourceLocation" --volume "$destination" --nointeraction && say Boot Installer Complete
+        sudo "$sourceLocation" --volume "$destination" --applicationpath "$installer" --nointeraction && \
+        say Boot Installer Complete
     else
         echo "Destination is not valid. Try again"
         exit 1
