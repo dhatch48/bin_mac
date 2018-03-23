@@ -83,8 +83,10 @@ else:
 
 driver = webdriver.Firefox(firefox_profile=fp, firefox_binary=binaryPath)
 
+# Bring firefox window to foreground
+driver.fullscreen_window()
 driver.set_window_size(1200,900)
-driver.set_window_position(1920/3,3)
+driver.set_window_position(1920-1200,3)
 # print(driver.get_window_position())
 # print(driver.get_window_size())
 # print(driver.get_window_rect())
