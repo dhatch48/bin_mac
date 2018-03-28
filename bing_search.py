@@ -7,6 +7,8 @@ import time
 import argparse
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import ElementNotInteractableException
+from selenium.common.exceptions import ElementNotVisibleException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver import ActionChains
@@ -129,8 +131,13 @@ while t > 0:
         print(i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
         driver.execute_script('arguments[0].scrollIntoView({bahavior: "smooth", block: "start", inline: "nearest"});', element)
         time.sleep(random.gauss(2, 0.4))
-        # ActionChains(driver).move_to_element(element).click().perform()
-        element.click()
+        try:
+            # ActionChains(driver).move_to_element(element).click().perform()
+            element.click()
+        except(ElementNotInteractableException, ElementNotVisibleException) as err:
+            print(type(err))
+            print(err)
+            continue
 
     elif fail:
         print("Try new search term")
