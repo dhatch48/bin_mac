@@ -1,4 +1,4 @@
-343
+347
 3D Printer
 Log File
 Export
@@ -341,12 +341,10 @@ File Association
 Mbps
 SKU
 PRAM
-Interlaced
 Computer Boot
-Toslink
 Virtual Memory
 Brownfield
-Architecture
+Software Architecture
 BASIC
 DLC
 Web Ring
