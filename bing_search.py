@@ -16,7 +16,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 # Check for argument and set iteration amount
 parser = argparse.ArgumentParser()
-parser.add_argument('t', metavar='N', type=int, nargs='?', default=35, help='An int for the number of searches to try')
+parser.add_argument('t', metavar='N', type=int, nargs='?', default=40, help='An int for the number of searches to try')
 parser.add_argument('-s', '--search', help='A string to use for the current search term')
 args = parser.parse_args()
 t = args.t
