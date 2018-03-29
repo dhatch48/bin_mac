@@ -1,4 +1,4 @@
-347
+348
 3D Printer
 Log File
 Export
@@ -345,11 +345,10 @@ Computer Boot
 Virtual Memory
 Brownfield
 Software Architecture
-BASIC
-DLC
+BASIC Language
 Web Ring
 Middleware
-RTE
+Runtime Environment
 USB-C
 Wireless
 OpenGL
