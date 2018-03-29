@@ -120,7 +120,7 @@ while t > 0:
         i = random_index(relatedLinks1)
         element = relatedLinks1[i]
         relatedSearchTerm = element.text
-        print(i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
+        print(t, i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
         # ActionChains(driver).move_to_element(element).click().perform()
         element.click()
 
@@ -128,7 +128,7 @@ while t > 0:
         i = random_index(relatedLinks2)
         element = relatedLinks2[i]
         relatedSearchTerm = element.text
-        print(i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
+        print(t, i, relatedSearchTerm, element.is_displayed(), element.location, sep=' - ')
         driver.execute_script('arguments[0].scrollIntoView({bahavior: "smooth", block: "start", inline: "nearest"});', element)
         time.sleep(random.gauss(2, 0.4))
         try:
