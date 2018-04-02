@@ -145,6 +145,7 @@ while t > 0:
         break
 
     else:
+        print("No related links found. Going back 2 pages")
         driver.back()
         time.sleep(random.gauss(2, 0.4))
         driver.back()
