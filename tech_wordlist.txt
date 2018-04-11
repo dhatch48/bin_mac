@@ -1,4 +1,4 @@
-349
+356
 3D Printer
 Log File
 Export
@@ -353,12 +353,9 @@ Wireless
 OpenGL
 CD-R
 OSPF
-Method
 Bus
 Rosetta
 UML
-CISC
-FDDI
 DRAM
 UTF
 DLL
@@ -370,14 +367,12 @@ Emoticon
 Batch File
 PowerPoint
 Caps Lock
-OSD
-VLB
 Metafile
 Personal URL
 Menu Bar
-Portal
+Captive Portal
 Blu-ray
-Spoofing
+MAC Spoofing
 Vlog
 Laptop
 Hashtag
