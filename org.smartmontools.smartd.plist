@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
+  <dict>
+    <key>KeepAlive</key>
+    <dict>
+      <key>SuccessfulExit</key>
+      <false/>
+    </dict>
     <key>Label</key>
     <string>org.smartmontools.smartd</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/smartd</string>
-        <string>-n</string>
+      <string>/usr/local/bin/smartd</string>
+      <string>-n</string>
     </array>
-    <key>KeepAlive</key>
+    <key>RunAtLoad</key>
     <true/>
-    <key>LowPriorityIO</key>
-    <true/>
-</dict>
+  </dict>
 </plist>
