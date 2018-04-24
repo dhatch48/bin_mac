@@ -13,9 +13,5 @@
     <true/>
     <key>LowPriorityIO</key>
     <true/>
-    <key>WatchPaths</key>
-    <array>
-        <string>/usr/local/etc/smartd.conf</string>
-    </array>
 </dict>
 </plist>
