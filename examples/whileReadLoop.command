@@ -12,7 +12,7 @@ while read line; do
 done
 echo
 
-# This diables backslash escaping but it still removes the leading space
+# This disables backslash escaping but it still removes the leading space
 printf '%s\n' "$text" |
 while read -r line; do 
     printf '%s\n' "[$line]"

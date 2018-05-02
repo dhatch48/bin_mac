@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HELLO=Hello 
+HELLO=Hello
 
 function hello {
     local HELLO=World
