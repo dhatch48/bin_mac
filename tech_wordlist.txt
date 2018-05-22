@@ -1,4 +1,4 @@
-366
+376
 3D Printer
 Log File
 Export
@@ -366,18 +366,16 @@ Batch File
 PowerPoint
 Caps Lock
 Metafile
-Personal URL
+URL shortener
 Menu Bar
 Captive Portal
 Blu-ray
 MAC Spoofing
 Vlog
 Laptop
-Hashtag
 Secondary Storage
-YouTube
 Shell
-Bot
+Web Bot
 Bloatware
 Dongle
 Macintosh
