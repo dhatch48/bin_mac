@@ -1,4 +1,4 @@
-376
+386
 3D Printer
 Log File
 Export
@@ -374,17 +374,16 @@ MAC Spoofing
 Vlog
 Laptop
 Secondary Storage
-Shell
-Web Bot
+Linux Shell
+Web Crawler
 Bloatware
 Dongle
-Macintosh
+Macintosh Computers
 Clipboard
 Impact Printer
-Optical Carrier
-E-mail Bankruptcy
-Technology Services
-Snapshot
+Fiber Optic Data Transfer
+Serialize Data
+Storage Snapshot
 CPU
 Newbie
 Digital Footprint
