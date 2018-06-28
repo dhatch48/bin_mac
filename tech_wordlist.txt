@@ -1,4 +1,4 @@
-386
+398
 3D Printer
 Log File
 Export
@@ -384,10 +384,9 @@ Impact Printer
 Fiber Optic Data Transfer
 Serialize Data
 Storage Snapshot
-CPU
+CPU Temp
 Newbie
 Digital Footprint
-Leopard
 Podcast
 Clip Art
 Brouter
@@ -396,7 +395,7 @@ Disk Drive
 DAW
 Navigation Bar
 VCI
-Ping
+Ping Command
 Null Character
 Botnet
 SMM
