@@ -1,4 +1,4 @@
-398
+400
 3D Printer
 Log File
 Export
@@ -401,8 +401,7 @@ Botnet
 SMM
 Namespace
 Safe Mode
-Microphone
-IT
+WordPress Hooks
 Left-Click
 Breadcrumbs
 Source Code
@@ -417,17 +416,16 @@ Trash
 Windows XP
 Parse
 Rich Text
-Friend
+WordPress Gutenberg
 Row
 DVD-RW
 Ripcording
-U
+WordPress Security
 DDR
 Unix
 Compact Flash
 Win32
 BMP
-Leaf
 NoSQL
 Socket
 I/O
@@ -512,7 +510,7 @@ Zettabyte
 ICANN
 ASP.NET
 Moodle
-MySQL
+MySQL vs MariaDB
 Protocol
 Scroll Wheel
 Attachment
@@ -573,7 +571,7 @@ Virus Definition
 Add-on
 Dot Pitch
 Mac OS
-Null
+Memorable Passwords
 User Interface
 Samba
 Mirrored Volume
@@ -680,7 +678,7 @@ VDU
 Daemon
 Jumper
 File System
-Favorites
+Browser Favorites
 Hard Token
 ALU
 LCD
@@ -752,14 +750,13 @@ Telecommunications
 Sample
 Cc
 TCP/IP
-MySpace
 SSID
 Animated GIF
 Tweet
 Text Editor
 IVR
 Gigabyte
-Cut
+Cut Shortcut
 Command Line Interface
 Scanner
 Subnet Mask
@@ -784,7 +781,7 @@ Compression
 Backbone
 Google Drive
 Scalable
-Access
+Microsoft Access
 BarCraft
 Flat File
 Memory
@@ -858,7 +855,7 @@ NNTP
 Name Server
 Debugger
 Hard Disk
-3G
+3G Speed
 Root Directory
 Terabyte
 WHOIS
@@ -888,7 +885,7 @@ CUDA
 DCIM
 Artificial Intelligence
 GNU
-IP
+IP Location
 Bug
 System Resources
 Affiliate
@@ -956,7 +953,7 @@ Tweak
 Framework
 Servlet
 Volume
-Table
+HTML Table
 Network
 Baud
 Excel
@@ -989,7 +986,7 @@ Thread
 WiMAX
 LIFO
 WAMP
-Tag
+WordPress Tag
 Lag
 Touchscreen
 Online
@@ -1007,9 +1004,8 @@ Emoji
 Dvorak Keyboard
 Cache
 Client
-Push
+Git Push
 Struct
-Drag
 X86
 LDAP
 PostScript
@@ -1026,7 +1022,7 @@ PHP
 Microkernel
 Interpreter
 IGP
-Class
+Program Class
 PON
 RISC
 Cyberspace
@@ -1039,7 +1035,7 @@ Coaxial Cable
 Twitter
 Dashboard
 FTP
-Set
+Set variables
 LinkedIn
 DVR
 SLA
