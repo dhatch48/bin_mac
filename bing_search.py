@@ -55,7 +55,7 @@ def random_index(arr):
 if args.search:
     searchTerm = args.search
 else:
-    wordlist = 'tech_wordlist.txt'
+    wordlist = os.path.realpath(os.path.expanduser('~')+'/bin/tech_wordlist.txt')
     with open(wordlist) as fp:
         for i, line in enumerate(fp):
             if i == 0:
