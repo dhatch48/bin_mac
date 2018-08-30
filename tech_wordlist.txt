@@ -1,4 +1,4 @@
-400
+428
 3D Printer
 Log File
 Export
@@ -398,19 +398,18 @@ VCI
 Ping Command
 Null Character
 Botnet
-SMM
+WordPress API
 Namespace
 Safe Mode
 WordPress Hooks
 Left-Click
-Breadcrumbs
-Source Code
+Website Breadcrumbs
+Open Source Code
 Surge Protector
-Monitor
+Computer Monitor
 Serial Port
 WPA
 PPTP
-FPU
 Multithreading
 Trash
 Windows XP
@@ -419,15 +418,14 @@ Rich Text
 WordPress Gutenberg
 Row
 DVD-RW
-Ripcording
 WordPress Security
 DDR
 Unix
 Compact Flash
-Win32
+Cygwin Windows 10
 BMP
 NoSQL
-Socket
+TCP Socket
 I/O
 System Requirements
 Unmount
