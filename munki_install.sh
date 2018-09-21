@@ -23,3 +23,6 @@ sudo installer -pkg "$package" -target /
 
 # update install/update munki config
 "$runDir/munki_config_update.sh"
+
+echo
+echo 'Please reboot to complete installaion'
