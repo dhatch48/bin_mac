@@ -1,4 +1,4 @@
-428
+457
 3D Printer
 Log File
 Export
@@ -426,7 +426,7 @@ Cygwin Windows 10
 BMP
 NoSQL
 TCP Socket
-I/O
+Disk IO
 System Requirements
 Unmount
 Minicomputer
@@ -434,10 +434,10 @@ CD-RW
 File Type
 Memory Bank
 Kilohertz
-Kilobit
-SIP
+Kilobit vs Kilobyte
+SIP Phones
 Task Bar
-Office
+MS Office 365
 Windows 7
 sRGB
 Iframe
@@ -445,15 +445,16 @@ Computer Science
 Dynamic Website
 DBMS
 Progressive Scan
-WAN
-Throughput
+WAN vs LAN
+Network Throughput
 WDDM
 End User
 SIM Card
-Alpha Software
+Beta Software
+Apple Security Updates
 Bezel
-Assembler
-Garbage Collection
+Assembly language
+iTerm2
 Pop-Up
 Scraping
 XSLT
