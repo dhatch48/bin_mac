@@ -4,7 +4,7 @@
 # Therefore, copy this script to proper location prior to running the
 # '--install' parameter
 
-#Use for for debbuging, shows commands executed
+#Use for for debugging, shows commands executed
 #set -x
 
 # Vars used in install and uninstall functions
