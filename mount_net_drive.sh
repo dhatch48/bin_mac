@@ -14,7 +14,7 @@ mount_smbDrive() {
     drive[7]="smb://vm2/R - Resources"
     drive[8]="smb://vm2/S - Sales"
     drive[9]="smb://vm3/T - FTP"
-    drive[10]="smb://vm2/web"
+    drive[10]="smb://vm5/web"
 
     smbLocation=$(
         argToUpper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
