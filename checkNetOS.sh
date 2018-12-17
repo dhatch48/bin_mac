@@ -28,6 +28,7 @@ shift $((OPTIND-1))
 # Script start
 ###############################################################################
 
+currentDir="$(dirname "${BASH_SOURCE[0]}")/"
 echo Running...
 # Read Password
 echo
@@ -52,4 +53,4 @@ nmap -p 22 -oN - --script=ssh-run \
         if($0 ~ /Computer/) printf"\n";
         sub(/\\x0D/, "", $0);
         print $0;
-    }'
+    }' | tee "$currentDir/macOSReport.txt" 
