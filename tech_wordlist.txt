@@ -1,9 +1,8 @@
-459
+6
 3D Printer
 Log File
 Export
 Zero Day Exploit
-RADCAB
 Character Encoding
 CDFS
 Soft Token
@@ -465,7 +464,7 @@ SaaS
 Recursion
 HTTPS
 Multiprocessing
-Mavericks
+OS Mavericks
 OSI Model
 Email Bomb
 Lossy
