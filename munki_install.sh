@@ -13,7 +13,7 @@ cd "$runDir"
 curl \
     -sfO \
     --connect-timeout 30 \
-    https://munkibuilds.org/3.4.1.3557/munkitools-3.4.1.3557.pkg
+    https://munkibuilds.org/3.5.2.3637/munkitools-3.5.2.3637.pkg
     #https://munkibuilds.org/munkitools3-latest.pkg
 package=(munkitools-*.pkg)
 
