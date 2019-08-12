@@ -13,7 +13,7 @@ for drive in $drives; do
     echo "Cleaning $drive"
     rm -rf "$drive"*
     echo "Copying Files..."
-    cp "$sourceLocation/"* "$drive" &
+    cp -R "$sourceLocation/" "$drive" &
 done
 
 for job in $(jobs -p); do
